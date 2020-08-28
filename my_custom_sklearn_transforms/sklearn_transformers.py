@@ -8,16 +8,7 @@ class DropColumns(BaseEstimator, TransformerMixin):
 
     def fit(self, X, y=None):
         return self
-
-    def transform(self, X):
-        # Primeiro realizamos a cópia do dataframe 'X' de entrada
-        data = X.copy()
-        # Retornamos um novo dataframe sem as colunas indesejadas
-        
-        data.drop(labels=self.columns, axis='columns')
-        df_data_3 = transform_df(data)
-
-       
+    
     def norm(self, X):
         from sklearn.preprocessing import Normalizer
         from sklearn.preprocessing import normalize
@@ -73,3 +64,15 @@ class DropColumns(BaseEstimator, TransformerMixin):
         df_data_3 = norm(df_data_3)
 
         return df_data_3
+
+
+    def transform(self, X):
+        # Primeiro realizamos a cópia do dataframe 'X' de entrada
+        data = X.copy()
+        # Retornamos um novo dataframe sem as colunas indesejadas
+        
+        data.drop(labels=self.columns, axis='columns')
+        df_data_3 = transform_df(data)
+
+       
+    
